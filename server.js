@@ -103,7 +103,7 @@ const socket = require('./lib/socket');
 socket(server);
 
 if (!module.parent) {
-    server.listen(config.port, () => {
+    server.listen(config.port, async () => {
         console.log('SERVER LISTENING ON PORT:', config.port);
     });
 }
