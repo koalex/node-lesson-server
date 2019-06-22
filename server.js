@@ -82,7 +82,25 @@ require('auth')(app);
 require('users')(app);
 require('messages')(app);
 
+const router = new (require('koa-router'));
+
+router.get('/user-agent', ctx => {
+    ctx.body = ctx.userAgent;
+});
+
+const fs = require('fs');
+router.get('/socket-page', ctx => {
+    ctx.type = 'html';
+    ctx.body = fs.createReadStream('./static/socket.html');
+});
+
+app.use(router.routes());
+
 const server = http.createServer(app.callback());
+
+const socket = require('./lib/socket');
+
+socket(server);
 
 if (!module.parent) {
     server.listen(config.port, () => {
