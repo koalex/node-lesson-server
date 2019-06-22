@@ -1,0 +1,58 @@
+{
+  "name": "nodejs-websocket-chat",
+  "version": "1.0.0",
+  "description": "Node.js server + koa.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODE_ENV=production node server.js",
+    "dev": "cross-env NODE_ENV=development nodemon server.js"
+  },
+  "engines": {
+    "node": ">=10.10.0",
+    "npm": ">=6"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "test/*",
+      "logs/*",
+      "*.pid"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "ascii-art": "^1.5.1",
+    "asciichart": "^1.5.9",
+    "async-busboy": "^0.7.0",
+    "auth": "koalex/node-lesson-auth",
+    "bunyan": "^1.8.12",
+    "cfonts": "^2.4.3",
+    "config": "^3.1.0",
+    "cross-env": "^5.2.0",
+    "dotenv": "^8.0.0",
+    "jsesc": "^2.5.2",
+    "keygrip": "^1.1.0",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-compose": "^4.1.0",
+    "koa-conditional-get": "^2.0.0",
+    "koa-etag": "^3.0.0",
+    "koa-logger": "^3.2.0",
+    "koa-response-time": "^2.1.0",
+    "koa-static": "^5.0.0",
+    "koa-useragent": "^1.2.1",
+    "messages": "koalex/node-lesson-messages",
+    "mongoose": "^5.5.15",
+    "node-notifier": "^5.4.0",
+    "nodemailer": "^6.2.1",
+    "qrcode-terminal": "^0.12.0",
+    "text-table": "^0.2.0",
+    "users": "koalex/node-lesson-users",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
