@@ -84,37 +84,6 @@ require('messages')(app);
 
 const server = http.createServer(app.callback());
 
-const art = require('ascii-art');
-// console.log(art.style('HELLO', 'off'))
-// art.font('NODE.js', 'rusted', console.log);
-// art.font('NODE.js', 'Doom', console.log);
-var qrcode = require('qrcode-terminal');
-
-qrcode.generate('http://github.com', {small: true}, function (qrcode) {
-    console.log(qrcode);
-});
-
-const CFonts = require('cfonts');
-
-// CFonts.say('NODE.JS', {
-//     font: 'block',              // define the font face
-//     align: 'left',              // define text alignment
-//     colors: ['system'],         // define all colors
-//     background: 'transparent',  // define the background color, you can also use `backgroundColor` here as key
-//     letterSpacing: 1,           // define letter spacing
-//     lineHeight: 1,              // define the line height
-//     space: true,                // define if the output text should have empty lines on top and on the bottom
-//     maxLength: '0',             // define how many character can be on one line
-// });
-
-var asciichart = require ('asciichart')
-var s0 = new Array (120)
-for (var i = 0; i < s0.length; i++) {
-    s0[i] = 15 * Math.sin (i * ((Math.PI * 4) / s0.length))
-}
-
-console.log (asciichart.plot (s0))
-
 if (!module.parent) {
     server.listen(config.port, () => {
         console.log('SERVER LISTENING ON PORT:', config.port);
