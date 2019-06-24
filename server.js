@@ -76,18 +76,22 @@ process
 .forEach(mw => {
     app.use(require(mw));
 });
+
+
+const router = new (require('koa-router'));
+router.get('/user-agent', ctx => {
+    ctx.body = ctx.userAgent;
+});
+
+const server = http.createServer(app.callback());
+const socket = require('./lib/socket');
+
 /*** MODULES ***/
 if (process.env.MODULES) {
     process.env.MODULES.split(/\s{0,},\s{0,}/).forEach(m => {
         require(m)(app);
     });
 }
-
-const router = new (require('koa-router'));
-
-router.get('/user-agent', ctx => {
-    ctx.body = ctx.userAgent;
-});
 
 const fs = require('fs');
 router.get('/socket-page', ctx => {
@@ -96,10 +100,6 @@ router.get('/socket-page', ctx => {
 });
 
 app.use(router.routes());
-
-const server = http.createServer(app.callback());
-
-const socket = require('./lib/socket');
 
 socket(server);
 
