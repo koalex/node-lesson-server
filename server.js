@@ -76,11 +76,12 @@ process
 .forEach(mw => {
     app.use(require(mw));
 });
-
 /*** MODULES ***/
-require('auth')(app);
-require('users')(app);
-require('messages')(app);
+if (process.env.MODULES) {
+    process.env.MODULES.split(/\s{0,},\s{0,}/).forEach(m => {
+        require(m)(app);
+    });
+}
 
 const router = new (require('koa-router'));
 

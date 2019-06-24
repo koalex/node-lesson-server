@@ -19,7 +19,12 @@
 
         socket.on('connect', () => {
             socket.emit('HELLO_FROM_CLIENT', 'ПРИВЕТ ОТ МЕНЯ');
+        });
+
+        socket.on('error', err => {
+            console.error('ОШИБКА =', err)
         })
+
     </script>
 </body>
 </html>
