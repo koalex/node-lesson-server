@@ -39,7 +39,7 @@
     "koa-response-time": "^2.1.0",
     "koa-static": "^5.0.0",
     "koa-useragent": "^1.2.1",
-    "mongoose": "^5.5.15",
+    "mongoose": "^5.7.5",
     "ngrok": "^3.2.1",
     "node-notifier": "^5.4.0",
     "nodemailer": "^6.2.1",
